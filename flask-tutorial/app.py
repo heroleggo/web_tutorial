@@ -17,7 +17,8 @@ def signin():
 	if request.method == 'POST':
 		if query.signin(request.form) == "success":
 			session['logged_in'] = True
-			session['username'] = request.form['username']
+			email = query.get_data(request.form['username'])['email']
+			session['email'] = email
 		else:
 			session['logged_in'] = False
 		return render_template('main.html')
@@ -43,14 +44,20 @@ def signup():
 @app.route('/signout')
 def signout():
 	session['logged_in'] = False
-	session['username'] = ""
+	session['email'] = ""
 	return render_template('main.html')
 
 
 @app.route('/info', methods=['POST','GET'])
 def info():
 	r = query.get_data(session['username'])
-	return render_template('info.html', username=r['username'], password=r['password'], email=r['email'])
+	if request.method == 'POST':
+		data = {'username':request.form['up_username'], 'password':request.form['up_password'], 'email':session['email']}
+		q1 = query.update(data)
+		q2 = query.get_data(request.form['up_username'])
+		return render_template('info.html', username=q2['username'], password=q2['password'], email=q2['email'])
+	else:
+		return render_template('info.html', username=r['username'], password=r['password'], email=r['email'])
 
 
 @app.route('/programs')

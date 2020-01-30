@@ -37,3 +37,10 @@ def get_data(username):
 	sq = "SELECT * FROM info WHERE `username`='%s'" % (username)
 	r = dbs.executeOne(sq)
 	return r
+
+def update(data):
+	dbs = db.database()
+	sq = "UPDATE info SET `username`='%s', `password`='%s' WHERE `email`='%s'" % (data['username'], data['password'], data['email'])
+	r = dbs.executeOne(sq)
+	dbs.commit()
+	return r

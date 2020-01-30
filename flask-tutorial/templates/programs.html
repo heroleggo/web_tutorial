@@ -4,7 +4,7 @@
 {% if session.logged_in %}
 	<div class="container">
 		<div class="row">
-	  	<div class="col card" style="width: 18rem; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
+	  	<div class="col card" style="width: auto; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
 	  		<img src="https://enki.co.kr/img/logo.png" class="card-img-top">
 	  		<div class="card-body">
 	  			<h5 class="card-title">ENKI</h5>
@@ -13,7 +13,7 @@
 	  		</div>
 	  	</div>
 
-	  	<div class="col card" style="width: 18rem; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
+	  	<div class="col card" style="width: auto; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
 	  		<img src="{{ url_for('static', filename='img/photoshop.png') }}" class="card-img-top">
 	  		<div class="card-body">
 	  			<h5 class="card-title">Adobe PhotoShop</h5>
@@ -22,7 +22,7 @@
 	  		</div>
 	  	</div>
 
-	  	<div class="col card" style="width: 18rem; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
+	  	<div class="col card" style="width: auto; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
 	  		<img src="{{ url_for('static', filename='img/bitcoin.png') }}" class="card-img-top">
 	  		<div class="card-body">
 	  			<h5 class="card-title">Bitcoin</h5>
@@ -38,7 +38,7 @@
 			<div class="col card" style="width: 18rem; margin-left: 10px; margin-right: 10px; margin-top: 30px;">
 				<div class="card-body">
 					<h5 class="card-title">Not Logged in</h5>
-					<p class="card-text">NOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOTNOT</p>
+					<p class="card-text">You are not logged in</p>
 					<a href="/" class="btn btn-primary">Go To Main page</a>
 				</div>
 			</div>
